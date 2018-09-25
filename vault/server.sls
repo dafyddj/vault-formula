@@ -1,6 +1,6 @@
 {% from "vault/map.jinja" import vault with context %}
 {%- if vault.self_signed_cert.enabled %}
-/usr/local/bin/self-cert-gen.sh:
+/usr/local/bin/cert-gen.sh:
   file.managed:
     - source: salt://vault/files/cert-gen.sh.jinja
     - template: jinja
@@ -13,7 +13,7 @@ generate self signed SSL certs:
     - name: bash /usr/local/bin/cert-gen.sh {{ vault.self_signed_cert.hostname }} {{ vault.self_signed_cert.password }}
     - cwd: /etc/vault
     - require:
-      - file: /usr/local/bin/self-cert-gen.sh
+      - file: /usr/local/bin/cert-gen.sh
 {% endif -%}
 
 include:
