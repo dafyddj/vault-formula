@@ -14,6 +14,7 @@ generate self signed SSL certs:
     - cwd: /etc/vault
     - require:
       - file: /usr/local/bin/cert-gen.sh
+      - /etc/vault
 {% endif -%}
 
 include:
