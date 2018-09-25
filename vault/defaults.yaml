@@ -4,7 +4,6 @@ vault:
   listen_port: 8200
   listen_address: 0.0.0.0
   tls_disable: 0
-  service: upstart
   tls_cert_file: {}
   tls_key_file: {}
   default_lease_ttl: 24h
@@ -15,7 +14,7 @@ vault:
   dev_mode: true
   secure_download: true
   service:
-    type: systemd
+    type: upstart
   user: root
   group: root
   hashicorp_gpg_key: |
