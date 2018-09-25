@@ -16,6 +16,9 @@ generate self signed SSL certs:
       - file: /usr/local/bin/self-cert-gen.sh
 {% endif -%}
 
+include:
+  - vault
+
 /etc/vault:
   file.directory:
     - user: root
